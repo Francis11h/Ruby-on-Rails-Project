@@ -1,0 +1,61 @@
+<%= form_with(model: company, local: true) do |form| %>
+  <% if company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+      <ul>
+      <% company.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :website %>
+    <%= form.text_field :website %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :size %>
+    <%= form.select(:size, Company::SIZE)%>
+  </div>
+
+  <div class="field">
+    <%= form.label :founded %>
+    <%= form.text_field :founded %>
+  </div>
+
+  <div class="field">
+    <%= form.label :revenue %>
+    <%= form.text_field :revenue %>
+  </div>
+
+  <div class="field">
+    <%= form.label :synopsis %>
+    <%= form.text_area :synopsis %>
+  </div>
+
+  <div class="field">
+    <%# if current_user.admin? %>
+      <%#= form.label :user_id %>
+      <%#= form.number_field :user_id %>
+    <%# else %>
+      <%= form.hidden_field :user_id, :value => current_user.id %>
+    <%# end %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

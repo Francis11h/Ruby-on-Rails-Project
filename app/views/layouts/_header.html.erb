@@ -1,0 +1,30 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <nav>
+      <% if logged_in? %>
+        <%= link_to "Profile", current_user %>
+        <%= link_to "Edit profile", edit_user_path(current_user) %>
+        <%= link_to "As realtor", "/users/#{@current_user.id}/realtor" %>
+        <%= link_to "As house hunter", "/users/#{@current_user.id}/hunter" %>
+        <%= link_to "Log out", logout_path, method: :delete %>
+      <% else %>
+        <li><%= link_to "Log in", login_path %></li>
+      <% end %>
+    </nav>
+  </div>
+  <div>
+    <% if current_user.admin? %>
+      <h2>You are the admin. You can:</h2>
+      <%= link_to "Create account", signup_path %>
+      <%= link_to "Manage users", users_path %>
+      <%= link_to "Manage real estate companies", companies_path %>
+      <%= link_to "Manage houses", houses_path %>
+      <%= link_to "Manage inquiries", inquiries_path %>
+    <% elsif current_user.realtor?%>
+      <h2>Logged in as realtor.</h2>
+    <% elsif current_user.hunter%>
+      <h2>Logged in as house hunter.</h2>
+    <% end %>
+  </div>
+</header>
+

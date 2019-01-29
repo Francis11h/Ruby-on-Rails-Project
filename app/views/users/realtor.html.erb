@@ -1,0 +1,13 @@
+<%= render '/layouts/header' %>
+
+<% if current_user.realtor?%>
+  <p>realtor operations:</p>
+  <%= link_to "View companies", companies_path(company_id: @current_user.company_id)%>
+  <%= link_to "View houses", houses_path%>
+  <% if @current_user.company_id.blank? %>
+    <p>It seems that you do not have a company, please use 'Edit profile' to choose or new a company to start listing houses</p>
+  <% end %>
+  <% unless  @current_user.company_id.blank? %>
+    <%= link_to "List a house", new_house_path(company_id: @current_user.company_id) %>
+  <% end %>
+<% end %>

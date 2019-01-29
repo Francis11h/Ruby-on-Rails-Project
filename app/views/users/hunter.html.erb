@@ -1,0 +1,7 @@
+<%= render '/layouts/header' %>
+
+<% if current_user.hunter%>
+  <p>house hunter operations:</p>
+  <%= link_to "View houses", houses_path %>
+  <%= link_to "View companies", companies_path %>
+<% end %>

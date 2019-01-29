@@ -1,0 +1,29 @@
+<%= render '/layouts/header' %>
+
+<h1>Search Result</h1>
+
+<p><%= link_to 'Back', new_search_path %></p>
+
+<% if @search.search_houses.empty? %>
+
+  <p>No Records Found</p>
+
+<% else %>
+
+  <% @search.search_houses.each do |c| %>
+    <br>
+
+    <div class="div">
+      <h1><%= c.location %></h1>
+      <p>Price: $<%=c.price %></p>
+      <p>Area: <%=c.area %> sq.ft</p>
+      <p>Style: <%=c.style %></p>
+      <p>Year: <%=c.builtyear %></p>
+      <p>Totalfloors: <%=c.totalfloors %></p>
+      <p>Basement: <%=c.basement %></p>
+
+    </div>
+
+  <% end %>
+
+<%end %>

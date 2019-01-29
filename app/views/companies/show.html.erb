@@ -1,0 +1,40 @@
+<%= render '/layouts/header' %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @company.name %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @company.website %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @company.address %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @company.size %>
+</p>
+
+<p>
+  <strong>Founded:</strong>
+  <%= @company.founded %>
+</p>
+
+<p>
+  <strong>Revenue:</strong>
+  <%= @company.revenue %>
+</p>
+
+<p>
+  <strong>Synopsis:</strong>
+  <%= @company.synopsis %>
+</p>
+<%= link_to 'Back', companies_path %>
+
+

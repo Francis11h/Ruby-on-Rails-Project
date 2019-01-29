@@ -1,0 +1,76 @@
+<%= form_with(model: house, local: true) do |form| %>
+  <% if house.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(house.errors.count, "error") %> prohibited this house from being saved:</h2>
+
+      <ul>
+      <% house.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.hidden_field :company_id, :value => current_user.company_id %>
+  </p>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :area %>
+    <%= form.text_field :area %>
+  </div>
+
+  <div class="field">
+    <%= form.label :builtyear %>
+    <%= form.text_field :builtyear %>
+  </div>
+
+  <div class="field">
+    <%= form.label :style %>
+    <%= form.select(:style, House::STYLE)%>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :totalfloors %>
+    <%= form.number_field :totalfloors %>
+  </div>
+
+  <div class="field">
+    <%= form.label :basement %>
+    <%= form.select(:basement, House::BASEMENT)%>
+  </div>
+
+  <div class="field">
+    <%= form.label :currentowner %>
+    <%= form.text_field :currentowner %>
+  </div>
+
+  <div class="field">
+    <%# if current_user.admin? %>
+      <%#= form.label :user_id %>
+      <%#= form.number_field :user_id %>
+    <%# else %>
+      <%= form.hidden_field :user_id, :value => current_user.id %>
+    <%# end %>
+  </div>
+
+  <span class="picture">
+    <%= form.file_field :picture %>
+  </span>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+
+<% end %>

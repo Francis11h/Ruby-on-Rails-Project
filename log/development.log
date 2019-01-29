@@ -1,0 +1,30 @@
+Started GET "/" for 127.0.0.1 at 2018-10-10 16:41:31 -0400
+
+PG::ConnectionBad - fe_sendauth: no password supplied
+:
+
+Started POST "/__better_errors/f9c0da76ebf128c2/variables" for 127.0.0.1 at 2018-10-10 16:41:31 -0400
+Started GET "/" for 127.0.0.1 at 2018-10-10 19:58:48 -0400
+
+PG::ConnectionBad - fe_sendauth: no password supplied
+:
+
+Started POST "/__better_errors/08cb7f68e296c904/variables" for 127.0.0.1 at 2018-10-10 19:58:48 -0400
+Started GET "/" for 127.0.0.1 at 2018-10-10 20:01:53 -0400
+
+PG::ConnectionBad - fe_sendauth: no password supplied
+:
+
+Started POST "/__better_errors/465834fb88eda42c/variables" for 127.0.0.1 at 2018-10-10 20:01:53 -0400
+Started GET "/" for 127.0.0.1 at 2018-10-10 20:02:29 -0400
+
+PG::ConnectionBad - fe_sendauth: no password supplied
+:
+
+Started POST "/__better_errors/6bea2d3dfe50e819/variables" for 127.0.0.1 at 2018-10-10 20:02:29 -0400
+Started GET "/" for 127.0.0.1 at 2018-10-10 20:09:07 -0400
+
+PG::ConnectionBad - fe_sendauth: no password supplied
+:
+
+Started POST "/__better_errors/fb9e6077f31db019/variables" for 127.0.0.1 at 2018-10-10 20:09:07 -0400

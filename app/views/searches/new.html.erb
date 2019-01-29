@@ -1,0 +1,56 @@
+<%= render '/layouts/header' %>
+
+<h1>Advanced Search</h1>
+
+<%= form_for @search, html: {class: "pure-form"} do |s| %>
+
+  <div class="field">
+    <%= s.label :location %>
+    <%= s.text_field :location %>
+    <br>
+  </div>
+
+  <div class="field">
+    <p><%= s.label :min_area, "Min area" %> - <%= s.number_field :min_area, size: 10 %></p>
+    <p><%= s.label :max_area, "Max area" %> - <%= s.number_field :max_area, size: 10 %></p>
+  </div>
+
+
+  <div class="field">
+    <p><%= s.label :min_year, "Min year" %> - <%= s.number_field :min_year, size: 4 %></p>
+    <p><%= s.label :max_year, "Max year" %> - <%= s.number_field :max_year, size: 4 %></p>
+  </div>
+
+
+  <div class="field">
+      <%= s.label :style %>
+      <%= s.select :style, options_for_select([['single family house','single family house'],['apartment','apartment'],['condos','condos']]), :include_blank => true %>
+  </div>
+
+  <div class="field">
+    <p><%= s.label :min_price, "Min price" %> - <%= s.text_field :min_price, size: 15 %></p>
+    <p><%= s.label :max_price, "Max price" %> - <%= s.text_field :max_price, size: 15 %></p>
+  </div>
+
+
+
+  <div class="field"><br />
+    <%= s.label :totalfloors %>
+    <%= s.number_field :totalfloors %>
+
+  </div>
+
+  <div class="field"><br />
+    <%= s.label :basement %>
+    <%#= s.text_field :basement %>
+    <%= s.select :basement, options_for_select([['yes','yes'],['no','no']]), :include_blank => true %>
+
+  </div>
+
+  <div class="actions">
+    <%= s.submit %>
+  </div>
+<% end %>
+
+
+<%= link_to 'Back', houses_path%>

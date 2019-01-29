@@ -1,0 +1,75 @@
+<%= render '/layouts/header' %>
+<p id="notice"><%= notice %></p>
+
+<h1>Houses</h1>
+
+<%=form_tag houses_path, :method => 'get' do%>
+  <%= text_field_tag :search, params[:search]%>
+  <%= submit_tag "Search Location"%>
+<% end %>
+
+<br>
+
+<%= link_to "Advanced Search", new_search_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Company</th>
+      <th>Location</th>
+      <th>Area</th>
+      <th>Builtyear</th>
+      <th>Style</th>
+      <th>Price</th>
+      <th>Totalfloors</th>
+      <th>Basement</th>
+      <th>Currentowner</th>
+      <th>Conntact info</th>
+      <th>Picture</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @houses.each do |house| %>
+      <tr>
+        <td><%= house.company.name %></td>
+        <td><%= house.location %></td>
+        <td><%= house.area %></td>
+        <td><%= house.builtyear %></td>
+        <td><%= house.style %></td>
+        <td><%= house.price %></td>
+        <td><%= house.totalfloors %></td>
+        <td><%= house.basement %></td>
+        <td><%= house.currentowner %></td>
+        <td><%= house.realtor_phone %></td>
+        <td><%= house.picture %></td>
+
+        <% if current_user.realtor?%>
+          <td><%= link_to "View potential buyers", interests_path(@house, :type=> house.id)%>
+          <td><%= link_to "View inquiries", inquiries_path(@house, :type=> house.id) %></td>
+        <% end %>
+
+        <% if current_user.hunter?%>
+          <td><%= link_to 'Add interest', new_interest_path(@house, :type=> house.id) %></td>
+          <td><%= link_to 'Remove interest', interests_path(@house, :type=> house.id)%></td>
+          <td><%= link_to 'New inquiry', new_inquiry_path(@house, :type=> house.id) %></td>
+        <% end %>
+
+        <td><%= link_to 'Show', house %></td>
+
+        <% if current_user.admin? || current_user.id==house.user_id%>
+          <td><%= link_to 'Edit', edit_house_path(house) %></td>
+          <td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<% if current_user.admin? || current_user.realtor?%>
+  <p><%= link_to 'List a house', new_house_path %></p>
+<% end %>
+
+<%= link_to 'Back', user_path(@current_user) %>

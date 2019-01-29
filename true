@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20181001192603_add_houselist_to_users.rb

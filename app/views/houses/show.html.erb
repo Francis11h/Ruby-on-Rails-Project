@@ -1,0 +1,56 @@
+<%= render '/layouts/header' %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @house.company.name %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @house.location %>
+</p>
+
+<p>
+  <strong>Area:</strong>
+  <%= @house.area %>
+</p>
+
+<p>
+  <strong>Builtyear:</strong>
+  <%= @house.builtyear %>
+</p>
+
+<p>
+  <strong>Style:</strong>
+  <%= @house.style %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @house.price %>
+</p>
+
+<p>
+  <strong>Totalfloors:</strong>
+  <%= @house.totalfloors %>
+</p>
+
+<p>
+  <strong>Basement:</strong>
+  <%= @house.basement %>
+</p>
+
+<p>
+  <strong>Currentowner:</strong>
+  <%= @house.currentowner %>
+</p>
+
+
+<p>
+  <strong>Picture:</strong>
+  <%= image_tag @house.picture.url if @house.picture? %>
+</p>
+
+
+<%= link_to 'Back', houses_path %>

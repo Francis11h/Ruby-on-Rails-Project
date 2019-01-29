@@ -1,0 +1,36 @@
+<%= render '/layouts/header' %>
+
+<% if current_user.admin? || current_user?(@user) %>
+  <p>
+    <%= "User name: "%>
+    <%= @user.name %>
+  </p>
+  <p>
+    <%= "Email: "%>
+    <%= @user.email %>
+  </p>
+  <p>
+    <%= "Phone: "%>
+    <%= @user.phone %>
+  </p>
+
+  <p>
+    <%= "Realtor? "%>
+    <%=@user.realtor %>
+  </p>
+  <p>
+    <%= "Company:  "%>
+    <%=@user.company_name %>
+  </p>
+  <p>
+    <%= "House hunter? "%>
+    <%=@user.hunter %>
+  </p>
+
+  <p>
+    <%= "Preferred contact method: "%>
+    <%=@user.method %>
+  </p>
+<% else %>
+  <%= "Not authorized!" %>
+<% end %>
